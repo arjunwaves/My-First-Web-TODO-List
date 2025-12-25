@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO-LIST</title>
+    <link rel="icon" href="to-do-list.png">
+</head>
+<center>
+
+<body background="background.jpg">
+
+                                        <!-- HTML CODE -->
+
+    <link rel="stylesheet" href="style.css">
+    <h1 style="color: beige;">My Tasks📝</h1>
+    <div style="padding: 50px; margin-top: 10px;">
+    <input id="input" >
+    <button style="background-color: darkgray; color: black;" id="war" onclick="change()" >ADD</button>
+    <h3 id="com"></h3>
+    <nav id="div"></nav>
+
+                                        <!-- JavaScript Code -->
+
+    <script>
+        var input = document.getElementById("input")
+        var add = document.getElementById("div")
+        function change()
+        {
+            if(input.value==0){
+            alert("No task detected!!")
+        }
+        else{
+            var lis = document.createElement("li")
+            var ul = document.createElement("ul")
+            var apnd = document.createElement("div")
+            apnd.id="long"
+            lis.innerHTML = input.value + " <button id='lock' onclick='del(event)' >DELETE</button>"
+            apnd.insertAdjacentElement("afterbegin",lis)
+            ul.insertAdjacentElement("afterbegin",apnd)
+            add.append(ul)
+        }   
+        }
+        function del(event)
+        {
+            event.target.closest('#long').remove()
+        }
+    </script>
+
+                                        <!-- CSS CODE -->
+
+    <style>
+        #input{
+            background-color:black;
+            color: aliceblue;
+            font-size: 25px;
+        }
+        #war{
+            background-color: white;
+            font-style: oblique;
+        }
+        #long{
+            font-size: x-large;
+            animation-duration: 5s;
+            background-color:gray;
+            border-color:dimgrey;
+            border-width: 2px;
+            border-style:groove;
+            margin-top: 0px;
+        }
+        body{
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #lock{
+            background-color: black;
+            color: goldenrod;
+            margin-left:80%;
+            font-size: 10px;
+        }     
+    </style>
+    </div>
+</center>
+</body>
+</html>
